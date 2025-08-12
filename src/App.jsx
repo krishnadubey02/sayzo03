@@ -7,6 +7,7 @@ import Cart from './Pages/Cart';
 import Login from './Pages/Login';
 import Payment from './Pages/Payment';
 import ProductDetails from './Pages/ProductDetails';
+import Profile from './Pages/Profile';
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
          <Route path='/b2b' element={<B2B/>}   />
          <Route path='/cart' element={<Cart/>} />
          <Route path='/payment' element={<Payment/>} />
+
+         <Route path = '/profile' element = {<Profile/>} />
       
      </Routes>
     </>

@@ -76,7 +76,7 @@ const Login = () => {
 
     return (
         <div className="mt-7 px-7 py-3">
-            <div onClick={() => navigate(-1)}  className="flex gap-4 hover:bg-amber-600 w-fit cursor-pointer rounded-lg px-2">
+            <div onClick={() => navigate("/")}  className="flex gap-4 hover:bg-amber-600 w-fit cursor-pointer rounded-lg px-2">
                 <p className="pt-1"><FaArrowLeft /></p>
                 <p>Back</p>
             </div>

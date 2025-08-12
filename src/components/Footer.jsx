@@ -1,18 +1,21 @@
 import {
-    FaBox,
-    FaCartPlus,
-    FaEnvelope,
-    FaFacebookF,
-    FaHome,
-    FaInstagram,
-    FaMapMarkerAlt,
-    FaPhone,
-    FaTwitter,
-    FaUser
+  FaBox,
+  FaCartPlus,
+  FaEnvelope,
+  FaFacebookF,
+  FaHome,
+  FaInstagram,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaTwitter,
+  FaUser
 } from "react-icons/fa";
 import { FaTowerBroadcast } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-[#0e1623] text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1  lg:grid-cols-4 gap-8 hidden lg:grid ">
@@ -87,39 +90,42 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-between items-center px-13 py-6 border-t border-gray-200 text-gray-700 bg-white text-sm max-w-7xl mx-auto lg:hidden ">
-        <div className="flex flex-col items-center">
-            <p><FaHome/></p>
-            <p>
-                Home
-            </p>
+        <div onClick={() => window.scrollTo({
+          top: 0,
+          behavior: "smooth" // smooth scrolling
+        })} className="flex flex-col items-center cursor-pointer">
+          <p><FaHome /></p>
+          <p>
+            Home
+          </p>
         </div>
-        <div className="flex flex-col items-center">
-            <p><FaBox/></p>
-            <p>
-                Categories 
-            </p>
+        <div className="flex flex-col items-center cursor-pointer">
+          <p><FaBox /></p>
+          <p>
+            Categories
+          </p>
         </div>
-        <div className="flex flex-col items-center">
-            <p><FaCartPlus/></p>
-            <p>
-                Cart
-            </p>
+        <div onClick={() => navigate("/cart")} className="flex flex-col items-center cursor-pointer">
+          <p><FaCartPlus /></p>
+          <p>
+            Cart
+          </p>
         </div>
-        <div className="flex flex-col items-center">
-            <p><FaUser/></p>
-            <p>
-              Profile
-            </p>
+        <div onClick={() => navigate("/profile")} className="flex flex-col items-center cursor-pointer">
+          <p><FaUser /></p>
+          <p>
+            Profile
+          </p>
         </div>
-        <div className="flex flex-col items-center">
-            <p><FaTowerBroadcast/></p>
-            <p>
-                Switch
-            </p>
+        <div className="flex flex-col items-center cursor-pointer">
+          <p><FaTowerBroadcast /></p>
+          <p>
+            Switch
+          </p>
         </div>
       </div>
     </footer>
-    
+
   );
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { MdLocationOn, MdSearch } from 'react-icons/md';
 import { useSelector } from 'react-redux';
@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { selectCartItems } from '../redux/cartSlice/cart';
 const Navbar = () => {
 
-const cartItems = useSelector(selectCartItems);
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const cartItems = useSelector(selectCartItems);
 
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -45,10 +46,17 @@ const cartItems = useSelector(selectCartItems);
             Switch Mode
           </div>
           <div
-            onClick={() => navigate('/login')}
+
             className="text-sm font-semibold hover:bg-orange-600 hover:text-white transition-all cursor-pointer duration-500 px-3 py-2 rounded"
           >
-            Login
+            {isLoggedIn ? (
+              <FaUserCircle
+                className="text-2xl cursor-pointer"
+                onClick={() => navigate("/profile")}
+              />
+            ) : (
+              <button onClick={() => navigate("/login")}>Login</button>
+            )}
           </div>
           <div className="relative cursor-pointer">
             <FaShoppingCart onClick={() => navigate('/cart')} className="text-2xl text-gray-800 hover:bg-orange-700 transition-all duration-500 px-1 py-1" />
